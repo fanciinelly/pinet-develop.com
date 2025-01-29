@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+     <style>
+        /* General Styles */
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #fefefe;
+        /* color: #333; */
+        }
+            /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #713d92;
+            color: white;
+            padding: 10px 20px;
+            position: relative; /* Required for centering */
+        }
+        
+        /* Group Image and Text */
+        .title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Adjust the space between the image and text */
+            position: absolute; /* Position absolutely within the header */
+            left: 50%; /* Move to the middle horizontally */
+            transform: translateX(-50%); /* Center it exactly */
+        }
+        
+        /* Style for the Image */
+        .header-logo {
+            width: 30px; /* Adjust image size */
+            height: auto;
+        }
+        
+        /* Header Text */
+        .header h1 {
+            margin: 0;
+            font-size: 18px;
+        }
+        
+        /* Back Arrow */
+        .back-arrow {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        /* Main Content */
+        .content {
+        text-align: center;
+        padding: 20px;
+        }
+
+        h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #101010;
+        }
+
+        .error-message {
+        /* color: #555; */
+        color: #252525;
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 10px 0 20px;
+        margin-top: 50px;
+        }
+
+        .retry-btn {
+        width: 50%;
+        background-color: #713d92;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 15px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 1px;
+        margin-bottom: 50px;
+        }
+
+        .retry-btn:hover {
+        background-color: #5e2d7d;
+        }
+
+        .info {
+        width: 90%;
+        margin: auto;
+        /* background-color: red; */
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        }
+
+        /* Underline for the Link */
+        .underline {
+        text-decoration: underline;
+        color: #713d92; /* Optional: Use the same purple color for the link */
+        }
+
+
+        .info a {
+        color: #713d92;
+        text-decoration: none;
+        }
+
+        .info a:hover {
+        text-decoration: underline;
+        }
+     </style>
+
+    
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <header class="header">
+            <a href="about.html" style="text-decoration: none; color: white;">←</a>
+            <!-- <div class="back-arrow">←</div> -->
+            <div class="title-group">
+                <img src="/public/images/pi-logo-removebg-preview.png" alt="Icon" class="header-logo">
+                <h1>Wallet</h1>
+            </div>
+        </header>
+
+          <!-- Main Content -->
+            <main class="content">
+                <h2>Unlock Pi Wallet</h2>
+                    <p class="error-message">
+                    Please provide a valid 24-word phrase to unlock your Pi wallet.<br>
+                    The phrase you provided is invalid. Please check your passphrase and try again.
+                    </p>
+                <button class="retry-btn">Try Again</button>
+                    <p class="info">
+                    As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. 
+                    Recovery of passphrase is currently impossible.<br><br><br>
+                    Lost your passphrase? <a href="#" class="underline">You can create a new wallet</a>, but all your Pi in your 
+                    previous wallet will be inaccessible.
+                    </p>
+            </main>
+    </div>
+</body>
+</html>
