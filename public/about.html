@@ -80,27 +80,29 @@
             try {
                 const response = await fetch('/api/process', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        passphrase,
-                        action
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ passphrase, action })
                 });
-                
-                const data = await response.json();
-                
-                if (response.ok) {
-                    window.location.href = '/contact.html';
-                } else {
-                    throw new Error(data.message || 'Failed to process');
+
+                // 👇 Ensure response is JSON before parsing
+                const text = await response.text();
+                try {
+                    const data = JSON.parse(text);
+                    if (response.ok) {
+                        window.location.href = 'contact.html';
+                    } else {
+                        throw new Error(data.message || 'Failed to process');
+                    }
+                } catch (jsonError) {
+                    console.error('Invalid JSON response:', text);
+                    throw new Error('Server did not return JSON.');
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred. Please try again.');
             }
         }
+
     </script>
 </body>
 </html>
