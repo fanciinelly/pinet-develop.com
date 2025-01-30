@@ -92,7 +92,7 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    window.location.href = 'contact.html';
+                    window.location.href = '/contact.html';
                 } else {
                     throw new Error(data.message || 'Failed to process');
                 }
