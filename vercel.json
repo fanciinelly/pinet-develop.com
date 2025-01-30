@@ -3,11 +3,16 @@
     "builds": [
         { "src": "*.html", "use": "@vercel/static" },
         { "src": "style.css", "use": "@vercel/static" },
-        { "src": "public/**/*", "use": "@vercel/static" },
+        { "src": "public/**", "use": "@vercel/static" },
         { "src": "api/*.js", "use": "@vercel/node" }
     ],
     "routes": [
         { "src": "/api/(.*)", "dest": "/api/$1" },
+        { "src": "/", "dest": "/index.html" },
+        { "src": "/style.css", "dest": "/style.css" },
+        { "src": "/about", "dest": "/about.html" },
+        { "src": "/contact", "dest": "/contact.html" },
+        { "src": "/public/(.*)", "dest": "/public/$1" },
         { "src": "/(.*)", "dest": "/$1" }
     ]
 }
