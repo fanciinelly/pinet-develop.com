@@ -1,18 +1,15 @@
 {
     "version": 2,
     "builds": [
-        { "src": "*.html", "use": "@vercel/static" },
-        { "src": "style.css", "use": "@vercel/static" },
-        { "src": "public/**", "use": "@vercel/static" },
+        { "src": "public/**/*", "use": "@vercel/static" },
         { "src": "api/*.js", "use": "@vercel/node" }
     ],
     "routes": [
         { "src": "/api/(.*)", "dest": "/api/$1" },
-        { "src": "/", "dest": "/index.html" },
-        { "src": "/style.css", "dest": "/style.css" },
-        { "src": "/about", "dest": "/about.html" },
-        { "src": "/contact", "dest": "/contact.html" },
-        { "src": "/public/(.*)", "dest": "/public/$1" },
-        { "src": "/(.*)", "dest": "/$1" }
+        { "src": "^/$", "dest": "/public/index.html" },
+        { "src": "/about", "dest": "/public/about.html" },
+        { "src": "/contact", "dest": "/public/contact.html" },
+        { "src": "/style.css", "dest": "/public/style.css" },
+        { "src": "/(.*)", "dest": "/public/$1" }
     ]
 }
