@@ -52,12 +52,12 @@ body {
 
 /* Logo Section */
 .logo-section {
-  margin: 10px 0;
+  margin: 40px 0;
 }
 
 .logo-circle {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   /* background-color: #ffcc00; */
   border-radius: 50%;
   margin: 0 auto;
@@ -70,7 +70,7 @@ body {
 }
 
 .logo-section h2 {
-  margin-top: 20px;
+  margin-top: 30px;
   color: #f9b44c;
 }
 
@@ -78,8 +78,8 @@ body {
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  margin: 40px 0;
+  gap: 10px;
+  margin: 50px 0;
 }
 
 .grid-item {
@@ -112,8 +112,8 @@ body {
   background-color: #713d92;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 15px 20px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 16px;
   gap: 8px; /* Space between icon and text */
@@ -211,11 +211,11 @@ body {
 
 textarea {
   width: 75%;
-  height: 100px;
+  height: 180px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 10px;
-  font-size: 14px;
+  font-size: 20px;
   margin-bottom: 20px;
   resize: none;
   outline: none;
@@ -223,7 +223,9 @@ textarea {
 
 textarea::placeholder {
   color: #aaa;
-  font-style: italic;
+  padding: 10px;
+  white-space: pre-line;
+
 }
 
 button {
@@ -232,7 +234,7 @@ button {
   padding: 10px;
   margin-bottom: 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   margin: auto;
@@ -252,7 +254,7 @@ button {
 .btn-fingerprint {
   background-color: #713d92;
   color: white;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .info {
@@ -260,8 +262,10 @@ button {
   /* height: 100px;
   background-color: red; */
   font-size: 16px;
-  color: #666;
+  color: #333;
   letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: center;
   /* margin: 10px 0; */
   margin: auto;
   margin-top: 30px;
