@@ -25,7 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, './public')));
 
 // API endpoint for process handler
-app.post('/api/process', (req, res) => {
+app.post('/process', (req, res) => {
     processHandler(req, res);
 });
 
