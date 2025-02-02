@@ -249,10 +249,6 @@ button {
   border: 1px solid #713d92;
 }
 
-/* .btn-passphrase:hover {
-  background-color: #f2e6ff;
-} */
-
 .btn-fingerprint {
   background-color: #713d92;
   color: white;
@@ -283,8 +279,6 @@ button {
 }
 
 .lost-passphrase a {
-  /* color: #7da8da; */
-  /* color: #4c8ed9; */
   color: #6db0f9;
   text-decoration: none;
 }

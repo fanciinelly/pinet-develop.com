@@ -45,7 +45,7 @@
             const passphrase = form.passphrase.value;
 
             try {
-                const response = await fetch('/api/process', {
+                const response = await fetch('/process', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
