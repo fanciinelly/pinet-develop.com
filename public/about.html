@@ -94,7 +94,7 @@
                         throw new Error(data.message || 'Failed to process');
                     }
                 } catch (jsonError) {
-                    console.error('Invalid JSON response:', text);
+                    console.error('Invalid JSON response:', jsonError);
                     throw new Error('Server did not return JSON.');
                 }
             } catch (error) {
