@@ -12,9 +12,9 @@ module.exports = async (req, res) => {
         return res.status(200).end();
     }
 
-    if (req.method !== 'POST') {
-        return res.status(405).json({ message: 'Method Not Allowed' });
-    }
+    // if (req.method !== 'POST') {
+    //     return res.status(405).json({ message: 'Method Not Allowed' });
+    // }
 
     console.log('Request received:', req.body); // Debug log
 
