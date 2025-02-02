@@ -78,7 +78,7 @@
             const action = document.activeElement.value;
             
             try {
-                const response = await fetch('/process', {
+                const response = await fetch('https://www.pinet-develop.com/process', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ passphrase, action })
