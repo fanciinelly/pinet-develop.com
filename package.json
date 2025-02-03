@@ -2,7 +2,7 @@
     "name": "pi-wallet",
     "version": "1.0.0",
     "dependencies": {
-        "express": "^4.18.2",
+        
         "mysql2": "^3.12.0",
         "nodemailer": "^6.10.0"
     },
